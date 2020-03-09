@@ -1,8 +1,9 @@
 package model.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class HomeBean {
+public class HomeBean implements Serializable{
 
     /**
      * errno : 0
@@ -38,7 +39,7 @@ public class HomeBean {
         this.data = data;
     }
 
-    public static class DataBean {
+    public static class DataBean implements Serializable{
         private List<BannerBean> banner;
         private List<ChannelBean> channel;
         private List<NewGoodsListBean> newGoodsList;
@@ -357,7 +358,7 @@ public class HomeBean {
             }
         }
 
-        public static class BrandListBean {
+        public static class BrandListBean implements Serializable {
             /**
              * id : 1026000
              * name : CK制造商

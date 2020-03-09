@@ -1,5 +1,6 @@
 package com.example.activity.login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -33,6 +34,8 @@ public class RegisterActivity extends BaseActivity<RegsitConstract.Presenter> im
      * 注册
      */
     private Button mBtnRegist;
+    private String name;
+    private String paw;
 
     @Override
     protected RegsitConstract.Presenter initPresenter() {
@@ -64,6 +67,10 @@ public class RegisterActivity extends BaseActivity<RegsitConstract.Presenter> im
     public void getRegistData(LoginBean registBean) {
 
         Log.i("tag","============> "+registBean);
+        Intent intent = getIntent();
+        intent.putExtra("name",name);
+        intent.putExtra("paw",paw);
+        setResult(2,intent);
         finish();
     }
 
@@ -80,12 +87,12 @@ public class RegisterActivity extends BaseActivity<RegsitConstract.Presenter> im
 
     private void regist() {
 
-        String name = mEditNickname.getText().toString();
-        String paw = mEditRegistPw.getText().toString();
+        name = mEditNickname.getText().toString();
+        paw = mEditRegistPw.getText().toString();
         String repaw = mEditRegistRepw.getText().toString();
 
         if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(paw)) {
-            persenter.getRegist(name,paw,repaw);
+            persenter.getRegist(name, paw,repaw);
         } else {
             ShowToast.show("账号密码不能为空");
 
