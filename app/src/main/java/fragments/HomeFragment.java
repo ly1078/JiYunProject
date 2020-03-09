@@ -33,8 +33,7 @@ import model.bean.HomeBean;
 import presenter.home.HomPresenter;
 
 /*
-    首页
- */
+    首页列表 */
 public class HomeFragment extends BaseFragment<HomeConstract.Persenter> implements HomeConstract.View, OnBannerListener {
 
     private RecyclerView recyclerView;
