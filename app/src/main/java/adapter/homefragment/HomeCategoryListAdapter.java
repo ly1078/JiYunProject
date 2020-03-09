@@ -63,7 +63,6 @@ public class HomeCategoryListAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        //数据不对，正在调
         int itemViewType = getItemViewType(position);
         if(itemViewType == TYPE_TITLE){
             String name = ((HomeBean.DataBean.CategoryListBean)mList.get(position)).getName();
