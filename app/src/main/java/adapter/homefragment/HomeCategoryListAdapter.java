@@ -31,7 +31,7 @@ public class HomeCategoryListAdapter extends RecyclerView.Adapter {
     private Context context;
     private ArrayList mList = new ArrayList();
 
-    // 刷新
+    // 刷新列表
     public void refreshAdapter(List<HomeBean.DataBean.CategoryListBean> arr){
         list.clear();;
         list.addAll(arr);
