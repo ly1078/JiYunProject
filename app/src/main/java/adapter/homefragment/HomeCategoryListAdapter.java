@@ -30,14 +30,6 @@ public class HomeCategoryListAdapter extends RecyclerView.Adapter {
     private ArrayList<HomeBean.DataBean.CategoryListBean> list;
     private Context context;
     private ArrayList mList = new ArrayList();
-
-    // 刷新列表
-    public void refreshAdapter(List<HomeBean.DataBean.CategoryListBean> arr){
-        list.clear();;
-        list.addAll(arr);
-        notifyDataSetChanged();
-    }
-
     public HomeCategoryListAdapter(ArrayList<HomeBean.DataBean.CategoryListBean> list, Context context) {
         this.list = list;
         this.context = context;
@@ -48,6 +40,17 @@ public class HomeCategoryListAdapter extends RecyclerView.Adapter {
     }
     private int TYPE_TITLE = 1;
     private int TYPE_ITEM = 2;
+
+    // 刷新列表
+    public void refreshAdapter(List<HomeBean.DataBean.CategoryListBean> arr){
+        list.clear();
+        list.addAll(arr);
+        for (int i = 0; i <list.size() ; i++) {
+            mList.add(list.get(i).getName());
+            mList.add(list.get(i).getGoodsList());
+        }
+        notifyDataSetChanged();
+    }
 
     @NonNull
     @Override
@@ -65,7 +68,7 @@ public class HomeCategoryListAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         int itemViewType = getItemViewType(position);
         if(itemViewType == TYPE_TITLE){
-            String name = ((HomeBean.DataBean.CategoryListBean)mList.get(position)).getName();
+            String name = (String)(mList.get(position));
             TitleHolder titleHolder = (TitleHolder) holder;
             titleHolder.title.setText(name);
         }
@@ -74,7 +77,7 @@ public class HomeCategoryListAdapter extends RecyclerView.Adapter {
 
             ArrayList<HomeBean.DataBean.CategoryListBean.GoodsListBean> goodsList =
                     (ArrayList<HomeBean.DataBean.CategoryListBean.GoodsListBean>)
-                            ((HomeBean.DataBean.CategoryListBean) mList.get(position)).getGoodsList();
+                            (mList.get(position));
             HomeCategoryItemAdapter homeCategoryItemAdapter = new HomeCategoryItemAdapter(context, goodsList);
             itemHolder.recyclerView.setLayoutManager(new GridLayoutManager(context,2));
             itemHolder.recyclerView.setAdapter(homeCategoryItemAdapter);

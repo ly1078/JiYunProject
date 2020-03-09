@@ -32,7 +32,7 @@ public class HomeCategoryItemAdapter extends BaseAdapter {
             TextView tv_new_price = (TextView) holder.getViewById(R.id.tv_item_price);
 
             name.setText(goodsListBean.getName());
-            tv_new_price.setText(goodsListBean.getRetail_price()+"");
+            tv_new_price.setText("￥"+goodsListBean.getRetail_price());
             Glide.with(conext).load(goodsListBean.getList_pic_url()).into(iv_new);
 
     }

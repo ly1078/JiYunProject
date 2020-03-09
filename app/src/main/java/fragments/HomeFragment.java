@@ -92,7 +92,7 @@ public class HomeFragment extends BaseFragment<HomeConstract.Persenter> implemen
 
     private void catograyList() {
         categoryListBeans = new ArrayList<>();
-        recy_catogray.setLayoutManager(new GridLayoutManager(context,2));
+        recy_catogray.setLayoutManager(new LinearLayoutManager(context));
         homeCategoryListAdapter = new HomeCategoryListAdapter(categoryListBeans, context);
         recy_catogray.setAdapter(homeCategoryListAdapter);
     }
