@@ -16,6 +16,7 @@ public class HomeCategoryItemAdapter extends BaseAdapter {
 
     public HomeCategoryItemAdapter(Context conext, ArrayList list) {
         super(conext, list);
+
     }
 
     @Override

@@ -172,7 +172,7 @@ public class HomeFragment extends BaseFragment<HomeConstract.Persenter> implemen
 
         //专题精选
         List<HomeBean.DataBean.TopicListBean> topicList = result.getData().getTopicList();
-        topicListBeans.addAll(topicList);
+        topiclist_adapter.refreshAdapter(topicList);
 
         // 居家 餐厨  饮食  配件  服装  婴童  杂货  洗护  志趣
         List<HomeBean.DataBean.CategoryListBean> categoryList = result.getData().getCategoryList();

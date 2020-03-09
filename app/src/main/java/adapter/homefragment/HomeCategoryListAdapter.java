@@ -29,6 +29,7 @@ public class HomeCategoryListAdapter extends RecyclerView.Adapter {
 
     private ArrayList<HomeBean.DataBean.CategoryListBean> list;
     private Context context;
+    private ArrayList mList = new ArrayList();
 
     // 刷新
     public void refreshAdapter(List<HomeBean.DataBean.CategoryListBean> arr){
@@ -40,6 +41,10 @@ public class HomeCategoryListAdapter extends RecyclerView.Adapter {
     public HomeCategoryListAdapter(ArrayList<HomeBean.DataBean.CategoryListBean> list, Context context) {
         this.list = list;
         this.context = context;
+        for (int i = 0; i <list.size() ; i++) {
+            mList.add(list.get(i).getName());
+            mList.add(list.get(i).getGoodsList());
+        }
     }
     private int TYPE_TITLE = 1;
     private int TYPE_ITEM = 2;
@@ -58,18 +63,19 @@ public class HomeCategoryListAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        //数据不对，正在调
         int itemViewType = getItemViewType(position);
         if(itemViewType == TYPE_TITLE){
-            String name = list.get(position).getName();
+            String name = ((HomeBean.DataBean.CategoryListBean)mList.get(position)).getName();
             TitleHolder titleHolder = (TitleHolder) holder;
             titleHolder.title.setText(name);
         }
         if(itemViewType == TYPE_ITEM){
-
             ItemHolder itemHolder = (ItemHolder) holder;
+
             ArrayList<HomeBean.DataBean.CategoryListBean.GoodsListBean> goodsList =
                     (ArrayList<HomeBean.DataBean.CategoryListBean.GoodsListBean>)
-                            ((HomeBean.DataBean.CategoryListBean ) list.get(position)).getGoodsList();
+                            ((HomeBean.DataBean.CategoryListBean) mList.get(position)).getGoodsList();
             HomeCategoryItemAdapter homeCategoryItemAdapter = new HomeCategoryItemAdapter(context, goodsList);
             itemHolder.recyclerView.setLayoutManager(new GridLayoutManager(context,2));
             itemHolder.recyclerView.setAdapter(homeCategoryItemAdapter);
@@ -78,7 +84,7 @@ public class HomeCategoryListAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return list.size()*2;
+        return mList.size();
     }
 
     @Override
