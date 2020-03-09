@@ -33,11 +33,16 @@ public class HomeCategoryListAdapter extends RecyclerView.Adapter {
     public HomeCategoryListAdapter(ArrayList<HomeBean.DataBean.CategoryListBean> list, Context context) {
         this.list = list;
         this.context = context;
-        for (int i = 0; i <list.size() ; i++) {
+        intiMlist(list);
+    }
+
+    private void intiMlist(ArrayList<HomeBean.DataBean.CategoryListBean> list) {
+        for (int i = 0; i < list.size(); i++) {
             mList.add(list.get(i).getName());
             mList.add(list.get(i).getGoodsList());
         }
     }
+
     private int TYPE_TITLE = 1;
     private int TYPE_ITEM = 2;
 
@@ -45,10 +50,7 @@ public class HomeCategoryListAdapter extends RecyclerView.Adapter {
     public void refreshAdapter(List<HomeBean.DataBean.CategoryListBean> arr){
         list.clear();
         list.addAll(arr);
-        for (int i = 0; i <list.size() ; i++) {
-            mList.add(list.get(i).getName());
-            mList.add(list.get(i).getGoodsList());
-        }
+        intiMlist(list);
         notifyDataSetChanged();
     }
 
