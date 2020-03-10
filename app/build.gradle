@@ -61,4 +61,7 @@ dependencies {
 
     // 轮播图
     implementation 'com.youth.banner:banner:1.4.10'
+
+    //竖着导航
+    implementation 'q.rorbin:VerticalTabLayout:1.2.5'
 }

@@ -3,7 +3,7 @@ package model.api;
 import io.reactivex.Flowable;
 import model.bean.HomeBean;
 import model.bean.LoginBean;
-import model.bean.RegistBean;
+import model.bean.SpecialLeadData;
 import model.bean.TopicBean;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -30,5 +30,13 @@ public interface APIService {
     @POST("auth/register")
     @FormUrlEncoded
     Flowable<LoginBean> regist(@Field("nickname") String nickname, @Field("password") String paw, @Field("verify") String verify);
+
+    //分类竖着导航接口 https://cdwan.cn/api/catalog/index
+    @GET("catalog/index")
+    Flowable<SpecialLeadData> getSpecialLead();
+
+    //分类右边对应的列表数据 https://cdwan.cn/api/catalog/current?id=1005001
+    @GET("catalog/current")
+    Flowable<SpecialLeadData> getSpecialData(@Query("id") int id);
 
 }
