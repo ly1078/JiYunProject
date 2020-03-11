@@ -35,6 +35,7 @@ public class SpecialItemActivity extends BaseActivity<Special_ItemConstract.Pres
     private TextView tv_front_name;
     private ArrayList<BaseFragment> fragments;
     private List<SpecialTabLeadList.DataBean.BrotherCategoryBean> brotherCategory;
+    private int position;
 
 
     @Override
@@ -47,8 +48,9 @@ public class SpecialItemActivity extends BaseActivity<Special_ItemConstract.Pres
     protected void initData() {
         Intent intent = getIntent();
         int id = intent.getIntExtra("id",0);
+        position = intent.getIntExtra("position",0);
         persenter.getSpeciaItemLead(id);
-        persenter.getSpeciaItemListData(id,1,100);
+        //persenter.getSpeciaItemListData(id,1,100);
     }
 
     @Override
@@ -94,6 +96,7 @@ public class SpecialItemActivity extends BaseActivity<Special_ItemConstract.Pres
         vp_special.setAdapter(specialFragmentAdapter);
 
         tab_special.setupWithViewPager(vp_special);
+        tab_special.getTabAt(position).select();
     }
 
     @Override
