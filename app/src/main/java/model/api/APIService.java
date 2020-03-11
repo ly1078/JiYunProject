@@ -5,6 +5,8 @@ import model.bean.HomeBean;
 import model.bean.LoginBean;
 import model.bean.SpecialLeadData;
 import model.bean.TopicBean;
+import model.bean.special.SpecialItemShowData;
+import model.bean.special.SpecialTabLeadList;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -38,5 +40,16 @@ public interface APIService {
     //分类右边对应的列表数据 https://cdwan.cn/api/catalog/current?id=1005001
     @GET("catalog/current")
     Flowable<SpecialLeadData> getSpecialData(@Query("id") int id);
+
+    // 分类 条目点击详情页  条目数据   categoryId  =  1008002
+    // https://cdwan.cn/api/goods/list?categoryId=1008002&page=1&size=100
+    @GET("goods/list")
+    Flowable<SpecialItemShowData> getSpecialItemData(@Query("categoryId") int categoryId
+    , @Query("page") int page, @Query("size") int size);
+
+    //  分类 条目点击详情页 导航数据  id=1008002
+    // http://cdwan.cn/goods/category?id=1008002
+    @GET("goods/category")
+    Flowable<SpecialTabLeadList> getSpecialItemLeadData(@Query("id") int id);
 
 }

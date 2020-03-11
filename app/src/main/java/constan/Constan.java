@@ -12,4 +12,6 @@ public class Constan {
 
     //商城的基础地址
     public static final String BASE_SHOP_URL = "https://cdwan.cn/api/";
+
+    public static final String BASE_SHOP_URL_II = "http://cdwan.cn/";
 }

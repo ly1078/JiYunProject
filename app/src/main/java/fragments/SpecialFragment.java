@@ -1,4 +1,5 @@
 package fragments;
+import android.content.Intent;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.ImageView;
@@ -8,12 +9,14 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.activity.specialItemactivity.SpecialItemActivity;
 import com.example.jiyunproject.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import adapter.special.FragmentSpecialListAdapter;
+import base.BaseAdapter;
 import base.BaseFragment;
 import interfaces.special.SpecialConstract;
 import model.bean.SpecialLeadData;
@@ -57,6 +60,16 @@ public class SpecialFragment extends BaseFragment<SpecialConstract.Presenter> im
 
         vTab = v.findViewById(R.id.vTab);
         vTab.addOnTabSelectedListener(this);
+
+        specialListAdapter.setItemClik(new BaseAdapter.BaseOnItemClik() {
+            @Override
+            public void onItemClick(int position) {
+                int id = special_list.get(position).getId();
+                Intent intent = new Intent(context, SpecialItemActivity.class);
+                intent.putExtra("id",id);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -92,10 +105,11 @@ public class SpecialFragment extends BaseFragment<SpecialConstract.Presenter> im
     // 导航
     private void showLead(List<SpecialLeadData.DataBean.CategoryListBean> categoryList) {
         for (int i = 0; i <categoryList.size() ; i++) {
-            QTabView qTabView = new QTabView(context);
+           /* QTabView qTabView = new QTabView(context);
             TextView titleView = qTabView.getTitleView();
             titleView.setText(categoryList.get(i).getName());
-            vTab.addTab(qTabView);
+            vTab.addTab(qTabView);*/
+            vTab.addTab(new QTabView(context).setTitle(new ITabView.TabTitle.Builder().setContent(categoryList.get(i).getName()).build()));
         }
     }
 

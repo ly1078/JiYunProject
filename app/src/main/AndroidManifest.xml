@@ -25,6 +25,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.activity.login.RegisterActivity" />
+        <activity android:name="com.example.activity.specialItemactivity.SpecialItemActivity"/>
     </application>
 
 </manifest>

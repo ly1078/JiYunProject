@@ -67,6 +67,18 @@ public class HttpManager {
         }
         return apiService;
     }
+
+    public APIService getApiServiceII(){
+        if(apiService == null){
+            synchronized (APIService.class){
+                if(apiService == null){
+                    apiService = getRetrofit(Constan.BASE_SHOP_URL_II).create(APIService.class);
+                }
+            }
+        }
+        return apiService;
+    }
+
     /**
      * 日志拦截器，打印请求接口的报文信息
      * 提供日志信息帮组优化代码
