@@ -24,7 +24,9 @@ import interfaces.special.Special_ItemConstract;
 import model.bean.special.SpecialItemShowData;
 import model.bean.special.SpecialTabLeadList;
 import presenter.special.specialitem.SpecialItemPresenter;
-
+/*
+    分类条目点击后的二级分类
+ */
 public class SpecialItemActivity extends BaseActivity<Special_ItemConstract.Presenter> implements Special_ItemConstract.View, TabLayout.BaseOnTabSelectedListener {
 
     private TabLayout tab_special;

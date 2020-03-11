@@ -60,7 +60,7 @@ public class SpecialFragment extends BaseFragment<SpecialConstract.Presenter> im
 
         vTab = v.findViewById(R.id.vTab);
         vTab.addOnTabSelectedListener(this);
-
+    
         specialListAdapter.setItemClik(new BaseAdapter.BaseOnItemClik() {
             @Override
             public void onItemClick(int position) {
