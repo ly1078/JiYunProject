@@ -7,6 +7,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- SD卡缓存图片 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing"
+        android:value="true"/>
+
     <application
         android:name="apps.MyApplication"
         android:allowBackup="true"
@@ -26,6 +29,7 @@
         </activity>
         <activity android:name="com.example.activity.login.RegisterActivity" />
         <activity android:name="com.example.activity.specialItemactivity.SpecialItemActivity"/>
+        <activity android:name="com.example.activity.goodsinfo.GoodsDetailsActivity"/>
     </application>
 
 </manifest>

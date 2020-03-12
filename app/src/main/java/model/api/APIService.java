@@ -5,6 +5,7 @@ import model.bean.HomeBean;
 import model.bean.LoginBean;
 import model.bean.SpecialLeadData;
 import model.bean.TopicBean;
+import model.bean.special.RelatedBean;
 import model.bean.special.SpecialItemShowData;
 import model.bean.special.SpecialTabLeadList;
 import retrofit2.http.Field;
@@ -51,5 +52,10 @@ public interface APIService {
     // http://cdwan.cn/goods/category?id=1008002
     @GET("goods/category")
     Flowable<SpecialTabLeadList> getSpecialItemLeadData(@Query("id") int id);
+
+    // 商品详情页面
+    // https://cdwan.cn/api/goods/detail?id=1155000
+    @GET("goods/detail")
+    Flowable<RelatedBean> getGoodsDetail(@Query("id") int id);
 
 }

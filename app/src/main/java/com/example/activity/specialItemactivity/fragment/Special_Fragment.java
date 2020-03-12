@@ -1,16 +1,19 @@
 package com.example.activity.specialItemactivity.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.activity.goodsinfo.GoodsDetailsActivity;
 import com.example.jiyunproject.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import base.BaseAdapter;
 import base.BaseFragment;
 import interfaces.special.Special_ItemConstract;
 import model.bean.special.SpecialItemShowData;
@@ -53,7 +56,18 @@ public class Special_Fragment extends BaseFragment<Special_ItemConstract.Present
     public void returnSpeciaItemDataResult(SpecialItemShowData itemShowData) {
         ArrayList<SpecialItemShowData.DataBeanX.DataBean> data =
                 (ArrayList<SpecialItemShowData.DataBeanX.DataBean>) itemShowData.getData().getData();
+
         SpecialFragmentListAdapter listAdapter = new SpecialFragmentListAdapter(context,data);
+
         recyclerView.setAdapter(listAdapter);
+        listAdapter.setItemClik(new BaseAdapter.BaseOnItemClik() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent = new Intent(context, GoodsDetailsActivity.class);
+                int id = data.get(position).getId();
+                intent.putExtra("id",id);
+                startActivity(intent);
+            }
+        });
     }
 }
