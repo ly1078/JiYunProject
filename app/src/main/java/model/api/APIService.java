@@ -5,6 +5,8 @@ import model.bean.HomeBean;
 import model.bean.LoginBean;
 import model.bean.SpecialLeadData;
 import model.bean.TopicBean;
+import model.bean.car.AddCarBean;
+import model.bean.car.CarInfo;
 import model.bean.special.RelatedBean;
 import model.bean.special.SpecialItemShowData;
 import model.bean.special.SpecialTabLeadList;
@@ -57,5 +59,19 @@ public interface APIService {
     // https://cdwan.cn/api/goods/detail?id=1155000
     @GET("goods/detail")
     Flowable<RelatedBean> getGoodsDetail(@Query("id") int id);
+
+
+    //添加到购物车
+    // https://cdwan.cn/api/cart/add
+    //登录请求接口
+    @POST("cart/add")
+    @FormUrlEncoded
+    Flowable<AddCarBean> addCar(@Field("goodsId") int goodsId, @Field("number") int number
+    , @Field("productId") int productId);
+
+    //购物车列表数据
+    // https://cdwan.cn/api/cart/index
+    @GET("cart/index")
+    Flowable<CarInfo> getCarInfo();
 
 }

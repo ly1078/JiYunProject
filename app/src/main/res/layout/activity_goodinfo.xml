@@ -150,11 +150,12 @@
                     app:layout_constraintTop_toBottomOf="@id/txt_param"
                     android:background="@color/col_gray_line">
                     <TextView
+                        android:id="@+id/metarial"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         android:gravity="center_vertical"
-                        android:text=""
+                        android:text="材质"
                         android:textSize="16sp"></TextView>
                     <TextView
                         android:id="@+id/txt_metarial"
@@ -162,6 +163,7 @@
                         android:layout_height="match_parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
+                        android:layout_marginLeft="10dp"
                         android:gravity="center_vertical"
                         android:singleLine="true"
                         android:text="材质"
@@ -179,7 +181,7 @@
                         android:layout_height="match_parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         android:gravity="center_vertical"
-                        android:text=""
+                        android:text="尺寸"
                         android:textSize="16sp"></TextView>
                     <TextView
                         android:id="@+id/txt_size"
@@ -203,7 +205,7 @@
                         android:layout_height="match_parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         android:gravity="center_vertical"
-                        android:text=""
+                        android:text="颜色"
                         android:textSize="16sp"></TextView>
                     <TextView
                         android:id="@+id/txt_color"
@@ -227,7 +229,7 @@
                         android:layout_height="match_parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         android:gravity="center_vertical"
-                        android:text=""
+                        android:text="执行标准"
                         android:textSize="16sp"></TextView>
                     <TextView
                         android:id="@+id/txt_norm"
@@ -249,7 +251,7 @@
                     android:layout_height="match_parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     android:gravity="center_vertical"
-                    android:text=""
+                    android:text="产地"
                     android:textSize="16sp"></TextView>
                 <TextView
                     android:id="@+id/txt_place"
@@ -266,6 +268,13 @@
                 android:id="@+id/myWebView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_x="2dp"
+                    android:layout_y="19dp"></androidx.recyclerview.widget.RecyclerView>
             </WebView>
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/txt_question"
@@ -273,13 +282,10 @@
                 android:layout_height="wrap_content">
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
     </ScrollView>
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_con"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
