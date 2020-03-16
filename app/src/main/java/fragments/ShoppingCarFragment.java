@@ -22,14 +22,12 @@ import presenter.carinfo.CarInfoPresenter;
  * 购物车
  */
 public class ShoppingCarFragment extends BaseFragment<CarInfoConstract.Persenter> implements CarInfoConstract.View {
-
     private RecyclerView recycler_car;
     private CarAdapter carAdapter;
     private ArrayList<CarInfo.DataBean.CartListBean> list;
 
     @Override
     protected void initData() {
-        //presenter.getCarInfo();
     }
 
     @Override
@@ -50,7 +48,6 @@ public class ShoppingCarFragment extends BaseFragment<CarInfoConstract.Persenter
     protected int getLayout() {
         return R.layout.fragment_car;
     }
-
     @Override
     public void getCarInfoResult(CarInfo carInfo) {
         Log.i("tag","====> "+carInfo);
