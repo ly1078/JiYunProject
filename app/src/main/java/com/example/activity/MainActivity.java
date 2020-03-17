@@ -9,7 +9,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.jiyunproject.R;
@@ -23,6 +27,7 @@ import fragments.HomeFragment;
 import fragments.PersonalFragment;
 import fragments.ShoppingCarFragment;
 import fragments.SpecialFragment;
+import q.rorbin.verticaltablayout.VerticalTabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,7 +46,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initView();
+
+        /*ListView lv;
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });*/
+
+       initView();
         initFragment();
     }
 

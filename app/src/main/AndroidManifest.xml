@@ -29,7 +29,13 @@
         </activity>
         <activity android:name="com.example.activity.login.RegisterActivity" />
         <activity android:name="com.example.activity.specialItemactivity.SpecialItemActivity"/>
-        <activity android:name="com.example.activity.goodsinfo.GoodsDetailsActivity"/>
+        <activity android:name="com.example.activity.goodsinfo.GoodsDetailsActivity"
+
+            android:exported="true"
+            />
+
+
+
     </application>
 
 </manifest>

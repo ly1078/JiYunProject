@@ -79,7 +79,6 @@ public class SpecialItemActivity extends BaseActivity<Special_ItemConstract.Pres
         }*/
         tvName.setText(brotherCategory.get(0).getName());
         tv_front_name.setText(brotherCategory.get(0).getFront_name());
-
         initFragment(brotherCategory);
     }
 
