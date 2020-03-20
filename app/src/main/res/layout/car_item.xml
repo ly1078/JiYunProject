@@ -8,14 +8,13 @@
         android:id="@+id/checkbox"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
-        android:visibility="invisible"
         android:layout_height="wrap_content"/>
     <ImageView
         android:id="@+id/iv_car_item"
         android:layout_width="100dp"
         android:layout_height="100dp"/>
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:padding="10dp"
         android:layout_height="match_parent">
         <TextView
@@ -23,6 +22,7 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:layout_margin="5dp"
+            android:singleLine="true"
             android:id="@+id/tv_car_name_item"/>
 
         <TextView
@@ -30,16 +30,70 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:layout_margin="5dp"
+            android:layout_below="@id/tv_car_name_item"
             android:layout_alignParentBottom="true"
             android:id="@+id/tv_car_price_item"/>
     </RelativeLayout>
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:gravity="right"
-        android:text="x1"
-        android:layout_margin="10dp"
-        android:paddingRight="10dp"
-        android:id="@+id/tv_car_item_count"/>
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:gravity="right"
+            android:text="x1"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/tv_car_item_count"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:gravity="right"
+            android:text="已选择:>"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:visibility="invisible"
+            android:id="@+id/tv_car_chose"/>
+        <LinearLayout
+            android:id="@+id/ll_car_chose_count"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:visibility="invisible"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_reduce_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/tv_addcar_shape"
+                android:gravity="center"
+                android:layout_margin="10dp"
+                android:textSize="20dp"
+                android:text="-"/>
+            <TextView
+                android:id="@+id/tv_show_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/tv_addcar_shape"
+                android:gravity="center"
+                android:layout_margin="10dp"
+                android:textSize="20dp"
+                android:text="1"/>
+            <TextView
+                android:id="@+id/tv_add_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/tv_addcar_shape"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:layout_margin="10dp"
+                android:text="+"/>
+        </LinearLayout>
+
+    </RelativeLayout>
 </LinearLayout>

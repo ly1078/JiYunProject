@@ -199,8 +199,8 @@ public class GoodsDetailsActivity extends BaseActivity<GoodsDetailConstract.Pers
                 addInfoCar();
                 break;
             case R.id.tv_add_count:
-                String text = tv_show_count.getText().toString();
-                int i = Integer.parseInt(text);
+                String text_count = tv_show_count.getText().toString();
+                int i = Integer.parseInt(text_count);
                 i++;
                 tv_show_count.setText(i+"");
 
@@ -223,11 +223,15 @@ public class GoodsDetailsActivity extends BaseActivity<GoodsDetailConstract.Pers
 
     //把商品添加到购物车
     private void addInfoCar() {
-        if(bean!=null)
-        persenter.addCarInfo(bean.getData().getProductList().get(0).getGoods_id(),
-                bean.getData().getProductList().get(0).getGoods_number(),
-                bean.getData().getProductList().get(0).getId());
-
+        if(bean!=null) {
+            String text_count = tv_show_count.getText().toString();
+            int number = Integer.parseInt(text_count);
+            for (int i = 0; i < bean.getData().getProductList().size(); i++) {
+                persenter.addCarInfo(bean.getData().getProductList().get(i).getGoods_id(),
+                        number,
+                        bean.getData().getProductList().get(i).getId());
+            }
+        }
     }
 
     private void showDetail() {
