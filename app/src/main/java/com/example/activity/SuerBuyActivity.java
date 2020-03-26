@@ -51,7 +51,6 @@ public class SuerBuyActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_suer_buy);
         initView();
     }
-
     private void initView() {
         tv_edit_address = findViewById(R.id.tv_edit_address);
         tv_edit_address.setOnClickListener(this);
