@@ -7,6 +7,7 @@ import model.bean.SpecialLeadData;
 import model.bean.TopicBean;
 import model.bean.car.AddCarBean;
 import model.bean.car.CarInfo;
+import model.bean.car.DelCarInfo;
 import model.bean.special.RelatedBean;
 import model.bean.special.SpecialItemShowData;
 import model.bean.special.SpecialTabLeadList;
@@ -74,4 +75,9 @@ public interface APIService {
     @GET("cart/index")
     Flowable<CarInfo> getCarInfo();
 
+    //删除购物车数据
+    //https://cdwan.cn/api/cart/delete
+    @POST("cart/add")
+    @FormUrlEncoded
+    Flowable<DelCarInfo> delCarInfo(@Field("productIds") int productIds);
 }

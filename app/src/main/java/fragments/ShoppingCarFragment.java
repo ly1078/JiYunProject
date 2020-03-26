@@ -1,18 +1,25 @@
 package fragments;
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.activity.SuerBuyActivity;
 import com.example.jiyunproject.R;
 import java.util.ArrayList;
 import adapter.car.CarAdapter;
 import base.BaseFragment;
 import interfaces.carinfo.CarInfoConstract;
 import model.bean.car.CarInfo;
+import model.bean.car.DelCarInfo;
 import presenter.carinfo.CarInfoPresenter;
+import utils.ShowToast;
 
 /**
  * 购物车
@@ -25,6 +32,7 @@ public class ShoppingCarFragment extends BaseFragment<CarInfoConstract.Persenter
     private TextView tv_all_price;
     private TextView tv_edit_car;
     private Button btn_press;
+    private ArrayList<CarInfo.DataBean.CartListBean> press_cbCheck;
 
     @Override
     protected void initData() {
@@ -74,6 +82,16 @@ public class ShoppingCarFragment extends BaseFragment<CarInfoConstract.Persenter
     }
 
     @Override
+    public void delCarInfoResult(DelCarInfo delCarInfo) {
+        if(delCarInfo.getErrno() == 0){
+            ShowToast.show("删除成功");
+            //list.remove(press_cbCheck.get(i));
+            //刷新购物车
+
+        }
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         presenter.getCarInfo();
@@ -111,18 +129,24 @@ public class ShoppingCarFragment extends BaseFragment<CarInfoConstract.Persenter
                 break;
 
             case R.id.btn_press:
-                ArrayList<CarInfo.DataBean.CartListBean> press_cbCheck = carAdapter.getCbCheck();
+                press_cbCheck = carAdapter.getCbCheck();
                 String s1 = btn_press.getText().toString();
                 if("下单".equals(s1)){
 
-                    for (int i = 0; i < press_cbCheck.size(); i++) {
+                    ArrayList<CarInfo.DataBean.CartListBean> cbCheck = carAdapter.getCbCheck();
+                    Intent intent = new Intent(context, SuerBuyActivity.class);
+                    intent.putExtra("getAll",cbCheck);
+                    startActivity(intent);
+                    /*for (int i = 0; i < press_cbCheck.size(); i++) {
                         // 要购买的商品
                         CarInfo.DataBean.CartListBean cartListBean = press_cbCheck.get(i);
                         // 下单确认
-                    }
+                    }*/
                 }
                 if("删除所选".equals(s1)){
                     for (int i = 0; i < press_cbCheck.size(); i++) {
+                        CarInfo.DataBean.CartListBean cartListBean = press_cbCheck.get(i);
+                        presenter.delCarInfo(cartListBean.getProduct_id());
                         list.remove(press_cbCheck.get(i));
                     }
                     carAdapter.notifyDataSetChanged();

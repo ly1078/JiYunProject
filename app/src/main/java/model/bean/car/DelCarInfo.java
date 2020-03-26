@@ -1,14 +1,13 @@
 package model.bean.car;
 
-import java.io.Serializable;
 import java.util.List;
 
-public class CarInfo implements Serializable {
+public class DelCarInfo {
 
     /**
      * errno : 0
      * errmsg :
-     * data : {"cartList":[{"id":162,"user_id":5,"session_id":"1","goods_id":1116033,"goods_sn":"1116033","product_id":171,"goods_name":"多功能人体工学转椅","market_price":1399,"retail_price":1399,"number":3,"goods_specifition_name_value":"","goods_specifition_ids":"","checked":1,"list_pic_url":"http://yanxuan.nosdn.127.net/f1dbf1d9967c478ee6def81ed40734a2.png"}],"cartTotal":{"goodsCount":3,"goodsAmount":4197,"checkedGoodsCount":3,"checkedGoodsAmount":4197}}
+     * data : {"cartList":[{"id":246,"user_id":5,"session_id":"1","goods_id":1147048,"goods_sn":"1147048","product_id":228,"goods_name":"简约知性系列居家地毯 蓝灰格","market_price":559,"retail_price":559,"number":1,"goods_specifition_name_value":"","goods_specifition_ids":"","checked":1,"list_pic_url":"http://yanxuan.nosdn.127.net/fd7920a2eadd10fa10c0c03959a2abe0.png"}],"cartTotal":{"goodsCount":1,"goodsAmount":559,"checkedGoodsCount":1,"checkedGoodsAmount":559}}
      */
 
     private int errno;
@@ -39,10 +38,10 @@ public class CarInfo implements Serializable {
         this.data = data;
     }
 
-    public static class DataBean implements Serializable {
+    public static class DataBean {
         /**
-         * cartList : [{"id":162,"user_id":5,"session_id":"1","goods_id":1116033,"goods_sn":"1116033","product_id":171,"goods_name":"多功能人体工学转椅","market_price":1399,"retail_price":1399,"number":3,"goods_specifition_name_value":"","goods_specifition_ids":"","checked":1,"list_pic_url":"http://yanxuan.nosdn.127.net/f1dbf1d9967c478ee6def81ed40734a2.png"}]
-         * cartTotal : {"goodsCount":3,"goodsAmount":4197,"checkedGoodsCount":3,"checkedGoodsAmount":4197}
+         * cartList : [{"id":246,"user_id":5,"session_id":"1","goods_id":1147048,"goods_sn":"1147048","product_id":228,"goods_name":"简约知性系列居家地毯 蓝灰格","market_price":559,"retail_price":559,"number":1,"goods_specifition_name_value":"","goods_specifition_ids":"","checked":1,"list_pic_url":"http://yanxuan.nosdn.127.net/fd7920a2eadd10fa10c0c03959a2abe0.png"}]
+         * cartTotal : {"goodsCount":1,"goodsAmount":559,"checkedGoodsCount":1,"checkedGoodsAmount":559}
          */
 
         private CartTotalBean cartTotal;
@@ -66,10 +65,10 @@ public class CarInfo implements Serializable {
 
         public static class CartTotalBean {
             /**
-             * goodsCount : 3
-             * goodsAmount : 4197
-             * checkedGoodsCount : 3
-             * checkedGoodsAmount : 4197
+             * goodsCount : 1
+             * goodsAmount : 559
+             * checkedGoodsCount : 1
+             * checkedGoodsAmount : 559
              */
 
             private int goodsCount;
@@ -110,22 +109,22 @@ public class CarInfo implements Serializable {
             }
         }
 
-        public static class CartListBean implements Serializable {
+        public static class CartListBean {
             /**
-             * id : 162
+             * id : 246
              * user_id : 5
              * session_id : 1
-             * goods_id : 1116033
-             * goods_sn : 1116033
-             * product_id : 171
-             * goods_name : 多功能人体工学转椅
-             * market_price : 1399
-             * retail_price : 1399
-             * number : 3
+             * goods_id : 1147048
+             * goods_sn : 1147048
+             * product_id : 228
+             * goods_name : 简约知性系列居家地毯 蓝灰格
+             * market_price : 559
+             * retail_price : 559
+             * number : 1
              * goods_specifition_name_value :
              * goods_specifition_ids :
              * checked : 1
-             * list_pic_url : http://yanxuan.nosdn.127.net/f1dbf1d9967c478ee6def81ed40734a2.png
+             * list_pic_url : http://yanxuan.nosdn.127.net/fd7920a2eadd10fa10c0c03959a2abe0.png
              */
 
             private int id;

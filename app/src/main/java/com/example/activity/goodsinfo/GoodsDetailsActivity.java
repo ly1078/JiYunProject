@@ -223,7 +223,7 @@ public class GoodsDetailsActivity extends BaseActivity<GoodsDetailConstract.Pers
 
     //把商品添加到购物车
     private void addInfoCar() {
-        if(bean!=null) {
+        if(bean!=null && popupWindow!=null) {
             String text_count = tv_show_count.getText().toString();
             int number = Integer.parseInt(text_count);
             for (int i = 0; i < bean.getData().getProductList().size(); i++) {
@@ -231,6 +231,8 @@ public class GoodsDetailsActivity extends BaseActivity<GoodsDetailConstract.Pers
                         number,
                         bean.getData().getProductList().get(i).getId());
             }
+        }else{
+            showDetail();
         }
     }
 
